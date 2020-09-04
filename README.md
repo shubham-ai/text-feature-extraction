@@ -1,9 +1,9 @@
 # text-feature-extraction
 
 <h2>Downloading Models - (Options) small, medium and large </h2>
-  <code>python -m spacy download en_core_web_sm</code>
-  <code>python -m spacy download en_core_web_md</code>
-  <code>python -m spacy download en_core_web_lg</code>
+  <code>python -m spacy download en_core_web_sm</code><br>
+  <code>python -m spacy download en_core_web_md</code><br>
+  <code>python -m spacy download en_core_web_lg</code><br>
   <ul>
   <li><h4>features.py working sample</h4></li>
   </ul>
