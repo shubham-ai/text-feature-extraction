@@ -9,7 +9,7 @@ with open('news.txt', 'r', encoding='utf-8') as f:
 
 features = data.split('. ')
 
-text = nlp(features[1])
+text = nlp(features[0])
 
 print(text)
 names = []
@@ -61,7 +61,6 @@ for token in text:
         try:
             if text[token.i+1].pos_ == "VERB":
                 word = token.text + " " + text[token.i + 1].text
-                print(word)
                 events.append(word)
                 iterator = 1
             else:
@@ -69,7 +68,6 @@ for token in text:
         except:
             print("End of text")
 
-match = [{"POS" : "NOUN"}, {"POS" : "VERB"}]
 
 print(names)
 print(events)
