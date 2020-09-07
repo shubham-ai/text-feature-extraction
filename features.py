@@ -8,7 +8,7 @@ with open('news.txt', 'r', encoding='utf-8') as f:
 
 features = data.split('. ')
 
-text = nlp(features[0])
+text = nlp(data)
 
 months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
@@ -22,7 +22,7 @@ money = []
 proper_nouns = []
 
 for ent in text.ents:
-    if ent.label_ == "MONEY" :
+    if ent.label_ == "MONEY" and (ent.text.find('per cent') < 0):
         money.append(ent.text)
     if ent.label_ == "DATE":
         dates.append(ent.text)
@@ -119,7 +119,7 @@ money_matcher.add("Lakh Crore", None, money_lc_pattern)
 money_matches = money_matcher(text)
 
 money_duplicates = [text[start:end] for _, start, end in money_matches]
-money = spacy.util.filter_spans(money_duplicates)
+money.extend(spacy.util.filter_spans(money_duplicates))
 
 remove_duplicates = [text[start:end] for _, start, end in matches]
 span = spacy.util.filter_spans(remove_duplicates)
