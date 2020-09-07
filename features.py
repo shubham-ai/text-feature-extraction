@@ -8,7 +8,7 @@ with open('news.txt', 'r', encoding='utf-8') as f:
 
 features = data.split('. ')
 
-text = nlp(data)
+text = nlp(features[16])
 
 months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
@@ -27,17 +27,14 @@ for ent in text.ents:
     if ent.label_ == "DATE":
         dates.append(ent.text)
     if ent.label_ == "PERSON":
-        print(ent.text)
         persons.append(ent.text)
     if ent.label_ == "ORG" and ent.label_.lower() != 'rs':
-        print(ent.text)
-
         organisations.append(ent.text)
 
 iterator = 0
 
 
-# print(text)
+print(text)
 
 # for token in text:
 #     print(token.text, token.pos_)
@@ -141,8 +138,8 @@ money = list(dict.fromkeys(money))
 
 print("Persons : ", persons)
 print("Organisations : ", organisations)
-print("Key names : ", names)
+# print("Key names : ", names)
 print("References : ", references)
-print("Key events : ", events)
+print("Key actions : ", events)
 print("Dates mentioned : ", dates)
 print("Money : ", money)
