@@ -8,7 +8,7 @@ with open('news.txt', 'r', encoding='utf-8') as f:
 
 features = data.split('. ')
 
-text = nlp(features[16])
+text = nlp(features[0])
 
 months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"]
 
@@ -138,7 +138,7 @@ money = list(dict.fromkeys(money))
 
 print("Persons : ", persons)
 print("Organisations : ", organisations)
-# print("Key names : ", names)
+print("Key names : ", names)
 print("References : ", references)
 print("Key actions : ", events)
 print("Dates mentioned : ", dates)
